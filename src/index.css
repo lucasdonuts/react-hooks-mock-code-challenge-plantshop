@@ -28,6 +28,16 @@ button.primary {
   color: white;
 }
 
+button.delete {
+  background-color: red;
+  color: white;
+}
+
+.button-area {
+    display: flex;
+    justify-content: space-between;
+}
+
 .app {
   margin: 0 auto;
   max-width: 1200px;

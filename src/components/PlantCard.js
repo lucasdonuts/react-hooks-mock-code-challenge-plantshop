@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function PlantCard({ plant }) {
+function PlantCard({ plant, deletePlant }) {
   const { name, image, price } = plant;
   const [inStock, setInStock] = useState(true);
 
@@ -13,11 +13,14 @@ function PlantCard({ plant }) {
       <img src={ image } alt={ name } />
       <h4>{ name }</h4>
       <p>Price: { price }</p>
-      {inStock ? (
-        <button onClick={ toggleSoldOut } className="primary">In Stock</button>
-      ) : (
-        <button onClick={ toggleSoldOut } >Out of Stock</button>
-      )}
+      <span className='button-area'>
+        {inStock ? (
+          <button onClick={ toggleSoldOut } className="primary">In Stock</button>
+        ) : (
+          <button onClick={ toggleSoldOut } >Out of Stock</button>
+        )}
+        <button onClick={ () => deletePlant(plant) } className="delete" >Delete Plant</button>
+      </span>
     </li>
   );
 }
