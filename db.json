@@ -41,6 +41,12 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Corn",
+      "image": "https://cdn.britannica.com/36/167236-050-BF90337E/Ears-corn.jpg",
+      "price": "24.50",
+      "id": 8
     }
   ]
 }
