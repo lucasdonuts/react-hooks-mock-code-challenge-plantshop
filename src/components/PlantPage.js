@@ -47,12 +47,16 @@ function PlantPage() {
     .then( updatedPlant => console.log( updatedPlant ) )
   }
 
+  const handleSearch = (searchString) => {
+    setSearch(searchString);
+  }
+
   const plantsToDisplay = plants.filter( plant => plant.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <main>
       <NewPlantForm addNewPlant={ addNewPlant } />
-      <Search search={ search } setSearch={ setSearch } />
+      <Search handleSearch={ handleSearch } />
       <PlantList plants={ plantsToDisplay } deletePlant={ deletePlant } updatePlant={ updatePlant } />
     </main>
   );
