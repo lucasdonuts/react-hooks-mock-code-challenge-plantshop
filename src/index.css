@@ -23,6 +23,11 @@ button {
   cursor: pointer;
 }
 
+.edit {
+  background-color: white;
+  cursor: pointer;
+}
+
 button.primary {
   background-color: var(--green);
   color: white;

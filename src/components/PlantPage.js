@@ -33,13 +33,27 @@ function PlantPage() {
     .then( setPlants( prev => prev.filter( plant => plant !== plantToDelete )))
   }
 
+  const updatePlant = (plantToUpdate) => {
+    console.log(plantToUpdate)
+    fetch(`http://localhost:6001/plants/${plantToUpdate.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        price: plantToUpdate.price
+      })
+    })
+    .then( updatedPlant => console.log( updatedPlant ) )
+  }
+
   const plantsToDisplay = plants.filter( plant => plant.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <main>
       <NewPlantForm addNewPlant={ addNewPlant } />
       <Search search={ search } setSearch={ setSearch } />
-      <PlantList plants={ plantsToDisplay } deletePlant={ deletePlant } />
+      <PlantList plants={ plantsToDisplay } deletePlant={ deletePlant } updatePlant={ updatePlant } />
     </main>
   );
 }

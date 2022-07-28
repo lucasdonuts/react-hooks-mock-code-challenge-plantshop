@@ -18,7 +18,10 @@ function NewPlantForm({ addNewPlant }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    addNewPlant(formData);
+    addNewPlant({
+      ...formData,
+      price: parseFloat(formData.price, 2)
+    });
 
     setFormData(initialState);
   }
